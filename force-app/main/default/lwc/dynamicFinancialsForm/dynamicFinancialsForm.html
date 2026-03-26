@@ -1,0 +1,65 @@
+<template>
+    <lightning-accordion allow-multiple-sections-open active-section-name={activeSections}>
+        
+        <!-- INCOME SECTION -->
+        <lightning-accordion-section name="Income" label="Income">
+            <lightning-button label="Add Income" slot="actions" onclick={addIncome}></lightning-button>
+            <template for:each={incomeRecords} for:item="inc" for:index="index">
+                <div key={inc.uid} class="slds-grid slds-gutters slds-m-bottom_small slds-p-bottom_small slds-border_bottom">
+                    <div class="slds-col slds-size_1-of-2">
+                        <lightning-input label="Income Source" value={inc.Income_Source__c} data-index={index} data-field="Income_Source__c" onchange={handleIncomeChange}></lightning-input>
+                    </div>
+                    <div class="slds-col slds-size_1-of-3">
+                        <lightning-input type="number" formatter="currency" label="Monthly Amount" value={inc.Monthly_Amount__c} data-index={index} data-field="Monthly_Amount__c" onchange={handleIncomeChange}></lightning-input>
+                    </div>
+                    <div class="slds-col slds-p-top_large">
+                        <lightning-button-icon icon-name="utility:delete" variant="destructive" onclick={removeIncome} data-index={index}></lightning-button-icon>
+                    </div>
+                </div>
+            </template>
+        </lightning-accordion-section>
+
+        <!-- ASSETS SECTION -->
+        <lightning-accordion-section name="Assets" label="Assets">
+            <lightning-button label="Add Asset" slot="actions" onclick={addAsset}></lightning-button>
+            <template for:each={assetRecords} for:item="asset" for:index="index">
+                <div key={asset.uid} class="slds-grid slds-gutters slds-m-bottom_small slds-p-bottom_small slds-border_bottom">
+                    <div class="slds-col slds-size_1-of-4">
+                        <lightning-combobox label="Asset Type" value={asset.Asset_Type__c} options={assetTypeOptions} data-index={index} data-field="Asset_Type__c" onchange={handleAssetChange}></lightning-combobox>
+                    </div>
+                    <div class="slds-col slds-size_1-of-4">
+                        <lightning-input type="number" formatter="currency" label="Estimated Value" value={asset.Estimated_Value__c} data-index={index} data-field="Estimated_Value__c" onchange={handleAssetChange}></lightning-input>
+                    </div>
+                    <div class="slds-col slds-size_1-of-3">
+                        <lightning-input label="Description" value={asset.Description__c} data-index={index} data-field="Description__c" onchange={handleAssetChange}></lightning-input>
+                    </div>
+                    <div class="slds-col slds-p-top_large">
+                        <lightning-button-icon icon-name="utility:delete" variant="destructive" onclick={removeAsset} data-index={index}></lightning-button-icon>
+                    </div>
+                </div>
+            </template>
+        </lightning-accordion-section>
+
+        <!-- LIABILITIES SECTION -->
+        <lightning-accordion-section name="Liabilities" label="Liabilities">
+            <lightning-button label="Add Liability" slot="actions" onclick={addLiability}></lightning-button>
+            <template for:each={liabilityRecords} for:item="liab" for:index="index">
+                <div key={liab.uid} class="slds-grid slds-gutters slds-m-bottom_small slds-p-bottom_small slds-border_bottom">
+                    <div class="slds-col slds-size_1-of-3">
+                        <lightning-combobox label="Liability Type" value={liab.Liability_Type__c} options={liabilityTypeOptions} data-index={index} data-field="Liability_Type__c" onchange={handleLiabilityChange}></lightning-combobox>
+                    </div>
+                    <div class="slds-col slds-size_1-of-3">
+                        <lightning-input type="number" formatter="currency" label="Amount Owed" value={liab.Amount_Owed__c} data-index={index} data-field="Amount_Owed__c" onchange={handleLiabilityChange}></lightning-input>
+                    </div>
+                    <div class="slds-col slds-size_1-of-4">
+                        <lightning-input type="number" formatter="currency" label="Monthly Payment" value={liab.Monthly_Payment__c} data-index={index} data-field="Monthly_Payment__c" onchange={handleLiabilityChange}></lightning-input>
+                    </div>
+                    <div class="slds-col slds-p-top_large">
+                        <lightning-button-icon icon-name="utility:delete" variant="destructive" onclick={removeLiability} data-index={index}></lightning-button-icon>
+                    </div>
+                </div>
+            </template>
+        </lightning-accordion-section>
+
+    </lightning-accordion>
+</template>

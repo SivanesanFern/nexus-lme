@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>66.0</apiVersion>
+    <isExposed>true</isExposed>
+    <targets>
+        <target>lightning__FlowScreen</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__FlowScreen">
+            <property name="incomeRecords" type="@salesforce/schema/Income__c[]" label="Income Output Collection" role="outputOnly"/>
+            <property name="assetRecords" type="@salesforce/schema/Asset__c[]" label="Assets Output Collection" role="outputOnly"/>
+            <property name="liabilityRecords" type="@salesforce/schema/Liability__c[]" label="Liabilities Output Collection" role="outputOnly"/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>
