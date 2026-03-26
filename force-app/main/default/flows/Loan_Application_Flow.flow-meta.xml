@@ -134,6 +134,11 @@
         <picklistObject>Application__c</picklistObject>
     </dynamicChoiceSets>
     <environments>Default</environments>
+    <formulas>
+        <name>frmApplicationURL</name>
+        <dataType>String</dataType>
+        <expression>&quot;/&quot; &amp; {!varApplicationId}</expression>
+    </formulas>
     <interviewLabel>Loan Application Flow {!$Flow.CurrentDateTime}</interviewLabel>
     <isAdditionalPermissionRequiredToRun>true</isAdditionalPermissionRequiredToRun>
     <label>Loan Application Flow</label>
@@ -514,7 +519,7 @@
         <allowPause>false</allowPause>
         <fields>
             <name>Success_message_application</name>
-            <fieldText>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;strong&gt;New Application Created &lt;/strong&gt;&lt;strong style=&quot;color: rgb(20, 124, 0);&quot;&gt;Successfully&lt;/strong&gt;&lt;strong&gt;!&lt;/strong&gt;&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;strong&gt;Application Created &lt;/strong&gt;&lt;strong style=&quot;color: rgb(20, 124, 0);&quot;&gt;Successfully&lt;/strong&gt;&lt;strong&gt;!&lt;/strong&gt;&lt;/p&gt;&lt;p style=&quot;text-align: center;&quot;&gt;&lt;em&gt;If its not Redirecing to the newly created application - &lt;/em&gt;&lt;a href=&quot;{!frmApplicationURL}&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;Click here!&lt;/a&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
             <styleProperties>
                 <verticalAlignment>
