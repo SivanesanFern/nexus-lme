@@ -1,0 +1,19 @@
+{
+  "folders": [
+    {
+      "path": "d:/Practice/Repo/nexus-lme"
+    }
+  ],
+  "settings": {
+    "eslint.workingDirectories": [
+      "d:/Practice/Repo/nexus-lme"
+    ],
+    "eslint.validate": [
+      "javascript",
+      "typescript"
+    ],
+    "eslint.options": {
+      "overrideConfigFile": "d:\\Practice\\Repo\\nexus-lme\\.eslintrc.json"
+    }
+  }
+}
