@@ -1,0 +1,54 @@
+<template>
+    <article id="checklist-live" class="slds-card slds-card_boundary">
+        <!-- Header -->
+        <div class="slds-card__header slds-grid">
+            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                <div class="slds-media__figure">
+                    <lightning-icon icon-name="standard:task2" size="small"></lightning-icon>
+                </div>
+                <div class="slds-media__body">
+                    <h2 class="slds-card__header-title">
+                        <span class="slds-text-heading_xx-small">Data Completion Checklist</span>
+                    </h2>
+                </div>
+                <div class="slds-no-flex">
+                    <lightning-button-icon icon-name="utility:refresh" onclick={handleRefresh} variant="border-filled"></lightning-button-icon>
+                </div>
+            </header>
+        </div>
+
+        <!-- Body -->
+        <div class="slds-card__body">
+            <!-- Header for Missing Data -->
+            <div class="slds-p-vertical_xx-small slds-p-horizontal_medium slds-theme_shade">
+                <span class="slds-text-title_bold">Missing Fields</span>
+            </div>
+            <div class="slds-p-horizontal_medium">
+                <template if:true={hasMissingFields} for:each={missingFields} for:item="f">
+                    <div key={f.label} class="slds-p-vertical_xx-small slds-grid slds-grid_vertical-align-center">
+                        <lightning-icon icon-name="utility:warning" size="xx-small" class="slds-m-right_xx-small blue-icon"></lightning-icon>
+                        <span class="field-link">{f.label}</span>
+                        <span class="slds-text-color_weak slds-m-left_xx-small">- Missing information</span>
+                    </div>
+                </template>
+                <template if:false={hasMissingFields} >
+                    <span>No missing fields - Record is ready for processing!</span>
+                </template>
+            </div>
+
+            <!-- Header for Filled Data -->
+            <div class="slds-p-vertical_xx-small slds-p-horizontal_medium slds-theme_shade slds-m-top_xx-small">
+                <span class="slds-text-title_bold">Completed Fields</span>
+            </div>
+            <div class="slds-p-horizontal_medium">
+                <template for:each={completedFields} for:item="f">
+                    <div key={f.label} class="slds-p-vertical_xx-small slds-grid slds-grid_vertical-align-center">
+                        <lightning-icon icon-name="utility:success" variant="success" size="xx-small" class="slds-m-right_xx-small"></lightning-icon>
+                        <span class="field-link">{f.label}</span> <!-- slds-text-color_weak -->
+                        <span class="slds-text-color_weak slds-m-left_xx-small">- Completed</span>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </article>
+</template>
