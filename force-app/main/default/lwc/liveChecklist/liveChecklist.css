@@ -1,0 +1,14 @@
+.field-link {
+    color: #0176d3;
+    font-weight: bold;
+}
+
+.blue-icon {
+    --slds-c-icon-color-foreground: #0176d3;
+}
+
+.slds-theme_shade {
+    background-color: #f3f3f3;
+    border-top: 1px solid #dddbda;
+    border-bottom: 1px solid #dddbda;
+}

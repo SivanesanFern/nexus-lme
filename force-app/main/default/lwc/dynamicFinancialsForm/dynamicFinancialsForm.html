@@ -4,7 +4,7 @@
         <!-- INCOME SECTION -->
         <lightning-accordion-section name="Income" label="Income">
             <lightning-button label="Add Income" slot="actions" onclick={addIncome}></lightning-button>
-            <template for:each={incomeRecords} for:item="inc" for:index="index">
+            <template for:each={_incomeRecords} for:item="inc" for:index="index">
                 <div key={inc.uid} class="slds-grid slds-gutters slds-m-bottom_small slds-p-bottom_small slds-border_bottom">
                     <div class="slds-col slds-size_1-of-2">
                         <lightning-input label="Income Source" value={inc.Income_Source__c} data-index={index} data-field="Income_Source__c" onchange={handleIncomeChange}></lightning-input>
@@ -22,7 +22,7 @@
         <!-- ASSETS SECTION -->
         <lightning-accordion-section name="Assets" label="Assets">
             <lightning-button label="Add Asset" slot="actions" onclick={addAsset}></lightning-button>
-            <template for:each={assetRecords} for:item="asset" for:index="index">
+            <template for:each={_assetRecords} for:item="asset" for:index="index">
                 <div key={asset.uid} class="slds-grid slds-gutters slds-m-bottom_small slds-p-bottom_small slds-border_bottom">
                     <div class="slds-col slds-size_1-of-4">
                         <lightning-combobox label="Asset Type" value={asset.Asset_Type__c} options={assetTypeOptions} data-index={index} data-field="Asset_Type__c" onchange={handleAssetChange}></lightning-combobox>
@@ -43,7 +43,7 @@
         <!-- LIABILITIES SECTION -->
         <lightning-accordion-section name="Liabilities" label="Liabilities">
             <lightning-button label="Add Liability" slot="actions" onclick={addLiability}></lightning-button>
-            <template for:each={liabilityRecords} for:item="liab" for:index="index">
+            <template for:each={_liabilityRecords} for:item="liab" for:index="index">
                 <div key={liab.uid} class="slds-grid slds-gutters slds-m-bottom_small slds-p-bottom_small slds-border_bottom">
                     <div class="slds-col slds-size_1-of-3">
                         <lightning-combobox label="Liability Type" value={liab.Liability_Type__c} options={liabilityTypeOptions} data-index={index} data-field="Liability_Type__c" onchange={handleLiabilityChange}></lightning-combobox>
